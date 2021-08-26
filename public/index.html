@@ -1,43 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158026674-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+		gtag('config', 'UA-158026674-1');
+	</script>
+	<meta charset="utf-8">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+	<title>Justin San Juan - Computer Scientist, Software Engineer</title>
+	<meta name="description" content="Premier dual-degree graduate with Bachelor of Engineering (BEng) in Computer Science and Bachelor of Business Administration (BBA) in General Business Management. Strong experience in back-end services, computer vision neural networks, database design, system design, and web front-end.">
+	<meta name="keywords" content="Top, Best, Degree, Graduate, Bachelor, Experience, Work, HK, Hong Kong, BBA, BEng, Computer Science, Software Engineer, Software Developer, Justin, San Juan, Back-end, Front-end, Database, System, Design, Graph">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/select.css">
+	<link rel="stylesheet" href="css/dropdown.css">
+	<link rel="stylesheet" href="css/tooltip.css">
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/help.css">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
-</html>
+</head>
+
+
+<body>
+<div class="demo-div">
+	<svg class="demo" id='viz'>  
+	</svg>
+	<div class="demo-options-left">
+		<!-- Graph structure dropdown-->
+		<div class="dropdown noselect">
+		  <button id="select-structure" class="dropbtn noselect">HEX</button>
+		  <div class="dropdown-content noselect">
+			<a class="noselect" onclick="demo_select_structure('HEX')">HEX</a>
+			<a class="noselect" onclick="demo_select_structure('GRID')">GRID</a>
+			<a class="noselect" onclick="demo_select_structure('CROSS GRID')">CROSS GRID</a>
+			
+		  </div>
+		</div>
+	
+		
+		<!-- Graph algorithm dropdown-->
+		<div class="dropdown noselect">
+		  <button id="select-algorithm" class="dropbtn noselect">BFS</button>
+		  <div class="dropdown-content noselect">
+			  <a class="noselect" onclick="demo_select_algorithm('BFS')">BFS
+				  <div class="tool-tip">
+					  <i class="tool-tip__icon">i</i>
+					  <p class="tool-tip__info">
+						  <span class="info"><span class="info__title">Breadth-First Search:</span> Searches closest nodes first before going deeper.</span>
+					  </p>
+				  </div>
+			  </a>
+
+
+
+			  <a class="noselect" onclick="demo_select_algorithm('DFS')">DFS
+				  <div class="tool-tip">
+					  <i class="tool-tip__icon">i</i>
+					  <p class="tool-tip__info">
+						  <span class="info"><span class="info__title">Depth-First Search:</span> Searches the children of nodes before its neighbors.</span>
+					  </p>
+				  </div>
+			  </a>
+		  </div>
+		</div>
+		
+	</div>
+	<div class="demo-options-right">
+		<div class="help-tip noselect" onclick="open_demo_modal()"></div>
+		<a class="btn demo-option demo-btn noselect" onclick="start_demo()">Start</a>
+	</div>
+	
+	<a class="demo-watermark" href="https://justinsj.com">By Justin San Juan</a>
+	
+	<div id="demo-modal" class="demo-modal">
+		<div class="demo-modal-content">
+			<span class="modal-close" onclick="close_demo_modal()">&times;</span>
+			<p>Select a node by pressing it.</p>
+			<p>Press Start to run the algorithm.</p>
+			<p>If two nodes are selected, the algorithm terminates upon collision.</p>
+			<p>Zoom using two fingers. Drag a node or the canvas.</p>
+			<p>Optionally, select a graph structure or an algorithm</p>
+
+		</div>
+	</div>
+</div>
+
+</body>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="models/graph_generator.js"></script>
+<script src="models/selected_nodes.js"></script>
+<script src="models/nodes.js"></script>
+<script src="models/adjacencies.js"></script>
+<script src="models/algorithm_threads.js"></script>
+<script src="models/algorithm.js"></script>
+<script src="models/algorithm_generator.js"></script>
+<script src="js/select.js"></script>
+
+
+<script src="app.js"></script>
+
+
+

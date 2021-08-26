@@ -1,0 +1,17 @@
+.help-tip{
+    text-align: center;
+    background-color: #2fbcff;
+    border-radius: 50%;
+    height: 32px;
+    font-size: 20px;
+    line-height: 31px;
+    cursor: pointer;
+    padding: 0 11.5px;
+}
+
+.help-tip:before{
+    content:'?';
+    font-weight: bold;
+    color:#fff;
+}
+
